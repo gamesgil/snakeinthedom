@@ -1,9 +1,11 @@
 console.log("VIEW");
 View = (_ => {
     let frames = 0
+    let size = 0
 
     return {
-        init: size => {
+        init: boardSize => {
+            size = boardSize
             const table = document.querySelector("tbody")
             
             for (let y = 0; y < size; y++) {
@@ -16,9 +18,19 @@ View = (_ => {
         },
 
         draw: (pos, type) => {
+            pos = typeof pos === 'number' ? pos : Utils.posToIdx(pos, size)
             const cell = document.querySelectorAll("td")[pos]
 
             cell.classList.add(type)
+        }, 
+        
+        clear: _ => {
+            const cells = document.querySelectorAll("td")
+
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].classList.remove("snake")
+            }
+            
         }
     }
 })()
