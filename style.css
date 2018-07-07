@@ -11,3 +11,7 @@ td {
 td.snake {
     background: red;
 }
+
+td.food {
+    background: green;
+}

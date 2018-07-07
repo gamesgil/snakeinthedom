@@ -25,3 +25,7 @@ Game.getSnake().map(pos =>View.draw(pos, "snake"))
 
 window.addEventListener('keydown', onKey)
 
+Game.addFood()
+
+View.draw(Game.getFoodIdx(), "food")
+
