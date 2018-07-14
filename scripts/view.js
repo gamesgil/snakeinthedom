@@ -29,6 +29,7 @@ View = (_ => {
 
             for (let i = 0; i < cells.length; i++) {
                 cells[i].classList.remove("snake")
+                cells[i].classList.remove("food")
             }
             
         }

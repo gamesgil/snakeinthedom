@@ -1,3 +1,41 @@
+const move = _ => {
+    View.clear()
+    Game.move()
+
+
+    if (Game.isEating()) {
+        console.log("EAT");
+
+        Game.removeFood()
+        Game.addOne()
+        Game.addFood()
+    }
+
+    if (!Game.getSnake().filter(pos => 
+        pos.x < 0 || pos.x >= Game.getGrid().length ||
+        pos.y < 0 || pos.y >= Game.getGrid().length).length) {
+            Game.getSnake().map(pos => View.draw(pos, "snake"))
+
+            if (Game.getFoodIdx() >= 0) {
+                View.draw(Game.getFoodIdx(), "food")
+            }
+        
+        
+            console.log("move", Game.getSnake())
+        } else {
+            stop()
+        }
+    
+}
+
+const stop = _ => {
+    Game.stop()
+    clearInterval(gameLoop)
+
+    console.log("STOP");
+    
+}
+
 const onKey = e => {
     console.log(e)
     switch (e.key) {
@@ -8,13 +46,11 @@ const onKey = e => {
         case "ArrowRight":
             Game.changeDirection(1)
             break
-    }
 
-    View.clear()
-    Game.getNext()
-    
-Game.getSnake().map(pos =>View.draw(pos, "snake"))
-    console.log(Game.getSnake())
+        case "Escape":
+            stop()
+            break;
+    }
 }
 
 Game.init()
@@ -28,4 +64,7 @@ window.addEventListener('keydown', onKey)
 Game.addFood()
 
 View.draw(Game.getFoodIdx(), "food")
+
+const gameLoop = setInterval(_ => move(), 1000)
+
 

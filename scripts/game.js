@@ -1,13 +1,14 @@
 Game = (_ => {
-    let table = []
+    let grid = []
     let foodIdx = -1
     let snakePos = [{x: 4, y: 3}, {x: 3, y: 3}, {x: 2, y: 3}, {x: 2, y: 2}]
     let dir = {x: 1, y: 0}
+    let isPlaying = false
 
     return {
         init: (size = 10) => {
             console.log("GAME INIT");
-            table = Array(size).fill(0).map((a,b) => new Array(size).fill(0))
+            grid = Array(size).fill(0).map((a,b) => new Array(size).fill(0))
         },
 
         changeDirection: change => {
@@ -28,18 +29,31 @@ Game = (_ => {
             console.log("changeDirection: ", dir)
         },
 
-        getNext: _ => {
-            
+        move: _ => {
             snakePos.unshift({x: snakePos[0].x + dir.x, y: snakePos[0].y + dir.y})
+
+            console.log("move: ", foodIdx, Utils.posToIdx(snakePos[0], grid.length));
+            console.log("foodIdx: ", foodIdx)
+           
             snakePos.pop()
         },
 
+        isEating: _ => {
+            const result = foodIdx === Utils.posToIdx(snakePos[0], grid.length)
+
+            return result
+        },
+
+        addOne: _ => {
+            snakePos.push(snakePos[snakePos.length - 1])
+        },
+
         addFood: _ => {
-            const potentials = Array(table.length * table.length).fill().map((a, b) => b)
+            const potentials = Array(grid.length * grid.length).fill().map((a, b) => b)
             console.log(potentials)
 
             snakePos.map(pos => {
-                const idx = Utils.posToIdx(pos, table.length)
+                const idx = Utils.posToIdx(pos, grid.length)
                 console.log(idx)
                 potentials.splice(potentials.indexOf(idx), 1)
             })
@@ -48,14 +62,22 @@ Game = (_ => {
             console.log("rand: ", rand);
             
             foodIdx = potentials[rand]
-
-            console.log("foodIdx: ", foodIdx)
         },
 
-        getTable: _ => table,
+        removeFood: _ => {
+            foodIdx = -1
+        },
+
+        stop: _ => {
+            status = 0
+        },
+
+        getGrid: _ => grid,
 
         getSnake: _ => snakePos,
 
-        getFoodIdx: _ => foodIdx
+        getFoodIdx: _ => foodIdx,
+
+        getStatus: _ => status
     }
 })();
