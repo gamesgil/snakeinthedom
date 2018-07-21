@@ -1,0 +1,19 @@
+{
+  "name": "snakeinthedom",
+  "version": "1.0.0",
+  "description": "demo game using vanilla js",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gamesgil/snakeinthedom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gamesgil/snakeinthedom/issues"
+  },
+  "homepage": "https://github.com/gamesgil/snakeinthedom#readme"
+}
