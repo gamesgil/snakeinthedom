@@ -1,13 +1,12 @@
 Game = (_ => {
     let grid = []
     let foodIdx = -1
-    let snakePos = [{x: 4, y: 3}, {x: 3, y: 3}, {x: 2, y: 3}, {x: 2, y: 2}]
+    let snakePos = [{x: 5, y: 3}, {x: 4, y: 3}, {x: 3, y: 3}, {x: 2, y: 3}, {x: 2, y: 2}]
     let dir = {x: 1, y: 0}
     let isPlaying = false
 
     return {
         init: (size = 10) => {
-            console.log("GAME INIT");
             grid = Array(size).fill(0).map((a,b) => new Array(size).fill(0))
         },
 
@@ -44,11 +43,9 @@ Game = (_ => {
 
         addFood: _ => {
             const potentials = Array(grid.length * grid.length).fill().map((a, b) => b)
-            console.log(potentials)
 
             snakePos.map(pos => {
                 const idx = Utils.posToIdx(pos, grid.length)
-                console.log(idx)
                 potentials.splice(potentials.indexOf(idx), 1)
             })
 
@@ -59,6 +56,18 @@ Game = (_ => {
 
         removeFood: _ => {
             foodIdx = -1
+        },
+
+        isHit: _ => {
+            const snakeHead = snakePos[0]
+
+            const overlaps = snakePos
+                .slice(1)
+                .filter(pos => snakeHead.x === pos.x && snakeHead.y === pos.y)
+
+            const result = overlaps.length > 0
+
+            return result
         },
 
         stop: _ => {

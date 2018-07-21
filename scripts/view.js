@@ -1,4 +1,3 @@
-console.log("VIEW");
 View = (_ => {
     let size = 0
 
