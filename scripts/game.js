@@ -25,16 +25,10 @@ Game = (_ => {
                 dir.x = change
                 dir.y = 0
             }
-
-            console.log("changeDirection: ", dir)
         },
 
         move: _ => {
             snakePos.unshift({x: snakePos[0].x + dir.x, y: snakePos[0].y + dir.y})
-
-            console.log("move: ", foodIdx, Utils.posToIdx(snakePos[0], grid.length));
-            console.log("foodIdx: ", foodIdx)
-           
             snakePos.pop()
         },
 
@@ -59,7 +53,6 @@ Game = (_ => {
             })
 
             const rand = Math.floor(Math.random() * potentials.length)
-            console.log("rand: ", rand);
             
             foodIdx = potentials[rand]
         },

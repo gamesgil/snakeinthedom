@@ -1,6 +1,5 @@
 console.log("VIEW");
 View = (_ => {
-    let frames = 0
     let size = 0
 
     return {
