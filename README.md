@@ -1,3 +1,14 @@
+# Snake in the DOM
+## Overview
+Originally I've created this demo game for a talk at NaturalIntelligence.
+This is a small version of the original game of Snake made famous by Nokia.
+This projects demonstrates the following concepts:
+- MVC
+- JS module pattern
+- Using the DOM as a viable game bed
+
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/gamesgil/snakeinthedom/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
