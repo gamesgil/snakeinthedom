@@ -31,11 +31,22 @@ module.exports = {
             },
             {
                 test: /\.(css|scss)$/,
+                exclude: /node-modules/,
                 use: [
                     'style-loader',
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf)$/,
+                exclude: /node-modules/,
+                loader: 'url-loader',
+                options: {
+                    publicPath: './assets/fonts',
+                    name: './[name].[ext]',
+                    limit: 1000
+                }
             }
         ]
     },
