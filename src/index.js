@@ -1,3 +1,10 @@
+import Game from './scripts/game'
+import View from './scripts/view'
+
+import './style.css'
+
+console.log('dude')
+
 const move = _ => {
     View.clear()
     Game.move()
@@ -63,5 +70,3 @@ Game.addFood()
 View.draw(Game.getFoodIdx(), "food")
 
 const gameLoop = setInterval(_ => move(), 1000)
-
-

@@ -1,4 +1,7 @@
-Game = (_ => {
+import Utils from './utils'
+
+
+const Game = (_ => {
     let grid = []
     let foodIdx = -1
     let snakePos = [{x: 5, y: 3}, {x: 4, y: 3}, {x: 3, y: 3}, {x: 2, y: 3}, {x: 2, y: 2}]
@@ -83,3 +86,5 @@ Game = (_ => {
         getStatus: _ => status
     }
 })();
+
+export default Game

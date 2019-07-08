@@ -1,4 +1,7 @@
-View = (_ => {
+import Utils from './utils'
+
+
+const View = (_ => {
     let size = 0
 
     return {
@@ -33,3 +36,5 @@ View = (_ => {
         }
     }
 })()
+
+export default View
