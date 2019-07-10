@@ -6,7 +6,7 @@ const Game = (_ => {
     let foodIdx = -1
     let snakePos = [{x: 5, y: 3}, {x: 4, y: 3}, {x: 3, y: 3}, {x: 2, y: 3}, {x: 2, y: 2}]
     let dir = {x: 1, y: 0}
-    let isPlaying = false
+    let isPlaying = true
 
     return {
         init: (size = 10) => {
@@ -74,7 +74,7 @@ const Game = (_ => {
         },
 
         stop: _ => {
-            status = 0
+            isPlaying = false
         },
 
         getGrid: _ => grid,
@@ -83,7 +83,7 @@ const Game = (_ => {
 
         getFoodIdx: _ => foodIdx,
 
-        getStatus: _ => status
+        getStatus: _ => isPlaying
     }
 })();
 

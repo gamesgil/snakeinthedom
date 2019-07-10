@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'nokia';
+    src: url('./assets/fonts/nokiafc22.ttf');
+}
+
+$bg: beige;
+$color: #0e443f;
+$font: 'nokia';
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+}
+
+@mixin border($color, $width, $radius) {
+    border-style: solid;
+    border-color: $color;
+    border-width: $width;
+    border-radius: $radius;
+}

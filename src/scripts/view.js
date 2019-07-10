@@ -30,9 +30,19 @@ const View = (_ => {
 
             for (let i = 0; i < cells.length; i++) {
                 cells[i].classList.remove("snake")
+                cells[i].classList.remove("snake-head")
                 cells[i].classList.remove("food")
             }
             
+        },
+
+        showGameOver: _ => {
+            const panel = document.querySelectorAll(".panel")[0]
+
+            panel.classList.remove('hidden')
+
+            panel.addEventListener('click', _ => window.location.reload())
+
         }
     }
 })()

@@ -4,7 +4,7 @@
   "description": "You can use the [editor on GitHub](https://github.com/gamesgil/snakeinthedom/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server",
+    "start:dev": "webpack-dev-server --open",
     "build": "webpack --mode production"
   },
   "repository": {
